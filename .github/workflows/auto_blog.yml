@@ -24,9 +24,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install google-genai
-
       - name: Generate blog post
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
