@@ -89,7 +89,7 @@
 <!-- Lead Magnet Popup -->
 <div class="popup-overlay" id="leadPopup">
   <div class="popup-box">
-    <button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>
+    <button class="popup-close" id="popupCloseBtn" aria-label="Close">&times;</button>
     <span class="popup-badge">Free Guide</span>
     <h2 class="text-xl font-bold mb-2">The Architect's Guide to Website Costs</h2>
     <p class="text-sm text-slate-500 mb-4">Get the exact budget breakdown most designers never see. Used by 200+ architects to plan their sites.</p>
@@ -137,6 +137,7 @@
   }
   
   form.addEventListener('submit', handleSubmit);
+  document.getElementById('popupCloseBtn').addEventListener('click', closePopup);
   popup.addEventListener('click', e => { if (e.target === popup) closePopup(); });
   
   // Show after 4 seconds OR 40% scroll
