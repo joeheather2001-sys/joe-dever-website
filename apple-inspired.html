@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jdigitalarchitecture — Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
+        body { background: #f5f5f7; color: #1d1d1f; letter-spacing: -0.02em; }
+        .apple-section { padding: 4rem 1rem; max-width: 1100px; margin: 0 auto; }
+        .hero { text-align: center; padding: 6rem 1rem 4rem; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; color: #86868b; max-width: 520px; margin: 0 auto 2rem; }
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 30px; font-weight: 500; text-decoration: none; transition: transform .15s ease, opacity .15s ease; }
+        .btn-primary { background: #1d1d1f; color: #fff; box-shadow: 0 10px 30px rgba(29,29,31,.12); }
+        .btn-primary:hover { transform: translateY(-2px); opacity: .9; }
+        .btn-secondary { color: #1d1d1f; border: 1px solid #d2d2d7; background: transparent; }
+        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 6rem; }
+        .card { background: #fff; border-radius: 20px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,.03); transition: transform .25s ease, box-shadow .25s ease; }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,.06); }
+        .card-icon { width: 56px; height: 56px; margin: 0 auto 1rem; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg,#3b82f6,#8b5cf6); border-radius: 50%; color:#fff; font-size: 1.5rem; }
+        .card h3 { font-weight: 600; margin-bottom: .5rem; }
+        .card p { color: #86868b; font-size: .95rem; }
+        .workflow { margin-top: 6rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; align-items: start; }
+        .step { display: flex; gap: 1rem; align-items: flex-start; }
+        .step-num { flex: 0 0 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg,#3b82f6,#8b5cf6); color: #fff; display:flex; align-items:center; justify-content:center; font-weight: 700; flex-shrink:0; }
+        .testimonials { margin-top: 6rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .quote { background: #fff; border-radius: 20px; padding: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,.03); }
+        .quote p { color: #86868b; font-style: italic; margin-bottom: 1rem; }
+        .quote .client { font-weight: 600; color: #1d1d1f; }
+        .contact { margin-top: 4rem; background: linear-gradient(135deg,#3b82f6,#8b5cf6); border-radius: 30px; padding: 3rem; color: #fff; text-align: center; }
+        .contact h2 { font-size: 1.75rem; margin-bottom: .5rem; }
+        .contact p { color: rgba(255,255,255,.8); margin-bottom: 1.5rem; }
+        footer { text-align: center; color: #86868b; padding: 2rem; font-size: .85rem; }
+        @media (max-width: 960px) { .features, .workflow, .testimonials { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Digital Architecture for Growth</h1>
+        <p>Custom web experiences that combine thoughtful design, performant code, and AI-assisted workflows to accelerate your product.</p>
+        <a href="#contact" class="btn btn-primary">Start a Project</a>
+    </section>
+
+    <!-- Features -->
+    <section class="apple-section features">
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+            <h3>Clean Development</h3>
+            <p>Scalable frontends and backends built with modern frameworks and best practices for maintainability.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3>High Performance</h3>
+            <p>Optimized assets, lazy loading, and caching strategies for fast, reliable experiences.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fa-solid fa-robot"></i></div>
+            <h3>AI Integration</h3>
+            <p>Smart features and agentic workflows that boost productivity without sacrificing quality.</p>
+        </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="apple-section workflow" id="services">
+        <div>
+            <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Discovery</strong><p>Goals, audience, and technical constraints.</p></div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Design</strong><p>Wireframes, UI kit, and interactive prototypes.</p></div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Build & Test</strong><p>Component-driven implementation with QA and accessibility checks.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="apple-section testimonials" id="work">
+        <div class="quote">
+            <p>Joe transformed our idea into a sleek, performant product ahead of schedule.</p>
+            <div class="client">— Alex Smith, Founder</div>
+        </div>
+        <div class="quote">
+            <p>Incredibly responsive and detail-oriented. Our conversion rate jumped after the redesign.</p>
+            <div class="client">— Maria Jones, CTO</div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="apple-section contact" id="contact">
+        <h2>Ready to build something great?</h2>
+        <p>Let’s discuss your next project. hello@joe.dev</p>
+        <a href="mailto:hello@joe.dev" class="btn btn-secondary">Contact Me</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Jdigitalarchitecture — Web development studio</p>
+    </footer>
+</body>
+</html>

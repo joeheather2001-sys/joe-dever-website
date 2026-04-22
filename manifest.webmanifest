@@ -1,0 +1,11 @@
+{
+  "name": "jdigitalarchitecture",
+  "short_name": "JDA",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#111111",
+  "icons": [
+    {"src": "assets/logo.svg", "sizes": "any", "type": "image/svg+xml"}
+  ]
+}

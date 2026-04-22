@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-assisted Workflows — jdigitalarchitecture</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="Practical LLM integration guardrails.">
+<meta property="og:title" content="AI-assisted Workflows in Modern Frontends"/>
+<meta property="og:description" content="Practical LLM integration guardrails."/>
+<meta property="og:image" content="/assets/og-image.jpg"/>
+<meta property="og:url" content="/blog/ai-workflows.html"/>
+<style>
+  body{font-family:Inter,sans-serif;background:#f5f5f7;color:#1d1d1f}
+  .glass{background:rgba(255,255,255,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.3)}
+  .btn{display:inline-block;padding:12px 28px;border-radius:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:transform .08s}
+  .btn-primary{background:#1d1d1f;color:#fff;box-shadow:0 6px 18px rgba(29,29,31,.12)}
+  pre{background:#1f2937;color:#60a5fa;padding:1rem;border-radius:.5rem;overflow-x:auto}
+</style>
+</head>
+<body>
+<header class="fixed w-full z-50 px-4 py-3">
+  <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-2xl px-5 py-2.5 shadow-sm">
+    <a href="../index.html" class="flex items-center gap-2 group" aria-label="Home">
+      <img src="../assets/logo.svg" alt="" class="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110">
+      <span class="sr-only">Joe Dev</span>
+    </a>
+    <nav class="hidden md:flex space-x-6 font-medium text-sm">
+      <a href="../index.html" class="hover:text-blue-400 transition">Home</a>
+      <a href="../about.html" class="hover:text-blue-400 transition">About</a>
+      <a href="../services.html" class="hover:text-blue-400 transition">Services</a>
+      <a href="../blog.html" class="hover:text-blue-400 transition">Blog</a>
+      <a href="../contact.html" class="hover:text-blue-400 transition">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="../contact.html" class="btn btn-primary text-xs md:text-sm px-4 py-2">Hire Me</a>
+    </div>
+  </div>
+</header>
+<main class="py-12 px-6 max-w-3xl mx-auto">
+  <h1 class="text-3xl font-bold mb-2">AI-assisted Workflows in Modern Frontends</h1>
+  <p class="text-sm text-slate-500 mb-6">Published 2026-03-10</p>
+  <div class="glass rounded-2xl p-8">
+    <p class="text-slate-700 mb-6">We explore practical ways to integrate LLM-based tooling into your dev workflow while keeping guardrails and quality.</p>
+    <h2 class="text-xl font-bold mb-2">Practical integration patterns</h2>
+    <p class="mb-4">Instead of replacing developers, AI becomes a collaborative layer: code suggestions, automated tests, and accessibility checks run in the pipeline.</p>
+    <h2 class="text-xl font-bold mb-2">Guardrails</h2>
+    <ul class="list-disc list-inside space-y-2 text-slate-700 mb-4">
+      <li>Static analysis before LLM calls</li>
+      <li>Review workflow with human-in-the-loop</li>
+      <li>Sandboxed execution for generated snippets</li>
+    </ul>
+    <h2 class="text-xl font-bold mb-2">Example: code review via CLI</h2>
+    <pre><code># analyze test coverage and suggest edge cases
+$ npx my-ai-reviewer --diff HEAD~1 --scope src/</code></pre>
+  </div>
+</main>
+<footer class="bg-slate-900 text-white py-12 mt-20 relative z-10">
+  <div class="max-w-6xl mx-auto text-center px-4">
+    <p class="text-slate-500 text-sm">© 2026 jdigitalarchitecture</p>
+  </div>
+</footer>
+<script src="../js/app.js"></script>
+</body></html>
