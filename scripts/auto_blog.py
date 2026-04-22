@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Auto Blog Post Generator for jdigitalarchitecture
-Uses Google Gemini API to generate SEO-optimized blog posts
+Uses Ollama (local) to generate SEO-optimized blog posts
 """
 
 import os
@@ -14,7 +14,7 @@ from pathlib import Path
 import subprocess
 
 # Configuration
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3:latest")
 BLOG_DIR = Path(__file__).parent.parent / "blog"
 POSTS_DIR = BLOG_DIR
 BLOG_INDEX = Path(__file__).parent.parent / "blog.html"
@@ -43,15 +43,17 @@ def generate_slug(title):
     slug = slug.strip('-')
     return slug
 
-def call_gemini_api(prompt):
-    """Call Gemini API using curl"""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
+def call_ollama(prompt):
+    """Call Ollama API to generate content"""
+    url = "http://localhost:11434/api/generate"
     
     payload = json.dumps({
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {
+        "model": OLLAMA_MODEL,
+        "prompt": prompt,
+        "stream": False,
+        "options": {
             "temperature": 0.7,
-            "maxOutputTokens": 2048
+            "num_predict": 1024
         }
     })
     
@@ -63,37 +65,39 @@ def call_gemini_api(prompt):
     
     try:
         response = json.loads(result.stdout)
-        if "candidates" in response and len(response["candidates"]) > 0:
-            return response["candidates"][0]["content"]["parts"][0]["text"]
+        if "response" in response:
+            return response["response"]
         else:
-            print(f"API Response: {response}")
+            print(f"Ollama Response: {response}")
             return None
     except Exception as e:
         print(f"Error parsing response: {e}")
         print(f"Response: {result.stdout}")
         return None
 
-def generate_post_html(title):
-    """Generate full blog post HTML using Gemini"""
+def generate_post_content(title):
+    """Generate blog post content using Ollama"""
     
-    prompt = f"""Write a blog post for a web developer/designer called "jdigitalarchitecture" who specializes in websites for architects and designers.
+    prompt = f'''Write a blog post for a web developer/designer called "jdigitalarchitecture" who specializes in websites for architects and designers.
 
 Title: {title}
 
 Requirements:
 - 400-600 words
 - Conversational, professional tone
-- Include 2-3 subheadings (## Heading format)
-- Include a bullet list of key takeaways
+- Include 2-3 subheadings using <h2> tags
+- Include a bullet list of key takeaways using <ul> and <li> tags
 - End with a soft CTA about getting a website consultation
-- Output ONLY the HTML content inside the <div class="glass rounded-2xl p-8"> tag - no markdown, just clean HTML with <h2>, <p>, <ul>, <li> tags
-- No code blocks needed
+- Output ONLY the HTML content - just <p>, <h2>, <ul>, <li>, <strong> tags. No markdown. No code blocks. No HTML boilerplate.
+- Keep it clean and ready to paste into a page template
 
-Content should be about: {title}
+Write the HTML content now:'''
 
-Generate the HTML content now:"""
+    content = call_ollama(prompt)
+    return content
 
-    content = call_gemini_api(prompt)
+def generate_post_html(title, content):
+    """Build complete blog post HTML file"""
     
     if not content:
         return None
@@ -101,7 +105,7 @@ Generate the HTML content now:"""
     date = datetime.now().strftime('%Y-%m-%d')
     slug = generate_slug(title)
     
-    # Extract meta description from first 150 chars of content
+    # Extract meta description from content
     meta_match = re.search(r'<p[^>]*>([^<]+)</p>', content)
     meta_desc = meta_match.group(1)[:150] if meta_match else title
     
@@ -179,21 +183,23 @@ def update_blog_index(new_post_path, title, excerpt, date):
     return True
 
 def main():
-    if not GEMINI_API_KEY:
-        print("ERROR: No GEMINI_API_KEY found in environment")
-        sys.exit(1)
-    
-    print(f"Using Gemini API to generate post...")
+    print(f"Generating blog post with Ollama ({OLLAMA_MODEL})...")
     
     # Pick a random topic
     topic = random.choice(TOPICS)
     print(f"Topic: {topic}")
     
-    # Generate post
-    result = generate_post_html(topic)
+    # Generate content
+    content = generate_post_content(topic)
+    
+    if not content:
+        print("ERROR: Failed to generate content")
+        sys.exit(1)
+    
+    result = generate_post_html(topic, content)
     
     if not result:
-        print("ERROR: Failed to generate post content")
+        print("ERROR: Failed to build HTML")
         sys.exit(1)
     
     html_content, slug, date, meta_desc = result
@@ -212,6 +218,17 @@ def main():
     excerpt = meta_desc[:150] + "..."
     if update_blog_index(post_path, topic, excerpt, date):
         print(f"Updated blog.html with new post")
+    
+    # Auto-commit and push
+    print("Committing and pushing to GitHub...")
+    try:
+        subprocess.run(["git", "add", "-A"], cwd=Path(__file__).parent.parent, check=True)
+        subprocess.run(["git", "commit", "-m", f"Auto blog post {date}"], cwd=Path(__file__).parent.parent, check=True)
+        subprocess.run(["git", "push", "origin", "main"], cwd=Path(__file__).parent.parent, check=True)
+        print("Pushed to GitHub!")
+    except subprocess.CalledProcessError as e:
+        print(f"Git error: {e}")
+        print("Post created locally but push failed. Run 'git push' manually.")
     
     print(f"\nDone! Post published: {post_path}")
 
