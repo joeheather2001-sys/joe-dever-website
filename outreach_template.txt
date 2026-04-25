@@ -1,0 +1,18 @@
+SUBJECT: Quick question about your website
+
+---
+
+Hi {{first_name | "there"}},
+
+I came across {{company}} and thought your business could benefit from a modern, professional website. No pressure — just sharing in case it's useful.
+
+I'm Joe, a web developer based in Derby. I help local businesses get clean, affordable websites that actually bring in customers.
+
+If you're curious, happy to share some examples of my work.
+
+Cheers,
+Joe
+
+---
+Jdigitalarchitecture
+joe.digitalarchitect@gmail.com
