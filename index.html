@@ -3,150 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>jdigitalarchitecture — Home</title>
+<title>Jdigitalarchitecture | Websites for Architects & Creative Studios</title>
+<meta name="description" content="Jdigitalarchitecture designs and builds fast, conversion-focused websites for architects, designers, and local businesses.">
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#111111">
-<style>
-  html{scroll-behavior:smooth} body{font-family:Inter,sans-serif;background:#f5f5f7;color:#1d1d1f;letter-spacing:-.02em}
-  .hero{padding:5rem 1rem 3rem;text-align:center}
-  .hero h1{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem}
-  .hero p{color:#86868b;max-width:520px;margin:0 auto 1.5rem}
-  .features{margin-top:3rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-  .card{background:#fff;border-radius:20px;padding:1.5rem;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.03)}
-  .btn{display:inline-block;padding:12px 28px;border-radius:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:transform .08s,box-shadow .2s}
-  .btn-primary{background:#1d1d1f;color:#fff;box-shadow:0 6px 18px rgba(29,29,31,.12)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(29,29,31,.2)}
-  .glass{background:rgba(255,255,255,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.3)}
-  .progress-wrap{position:fixed;top:0;left:0;width:100%;height:1px;background:transparent} #progressBar{position:absolute;top:0;left:0;height:4px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);transition:width .3s ease} 
-  .dark .hero{background:linear-gradient(180deg,rgba(59,130,246,.08) 0,rgba(6,182,212,.04) 100%)}
-  .dark .card{background:#1f2937;border-color:#374151}
-  .newsletter-form input{background:transparent;border:1px solid #4b5563;color:#e5e7eb;padding:10px 14px;border-radius:10px;outline:none;transition:border-color .2s} 
-  .newsletter-form input:focus{border-color:#3b82f6}
-  .newsletter-form button{background:#3b82f6;color:#fff;border:none;padding:10px 18px;border-radius:10px;font-weight:600;cursor:pointer}
-  .newsletter-form button:hover{opacity:.85}
-  .popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;display:none;align-items:center;justify-content:center;padding:1rem}
-  .popup-overlay.show{display:flex}
-  .popup-box{background:#fff;border-radius:24px;padding:2rem;max-width:480px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.2)}
-  .popup-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#86868b}
-  .popup-badge{display:inline-block;background:#fef3c7;color:#92400e;font-size:.75rem;font-weight:600;padding:.25rem .75rem;border-radius:999px;margin-bottom:.75rem}
-  @media(max-width:768px){.features{grid-template-columns:1fr}}
-</style>
+<meta name="theme-color" content="#09090b">
 </head>
 <body>
+<div class="bg-blobs">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
 <div class="progress-wrap"><div id="progressBar" style="width:0"></div></div>
+
 <header class="fixed w-full z-50 px-4 py-3">
   <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-2xl px-5 py-2.5 shadow-sm">
     <a href="index.html" class="flex items-center gap-2 group" aria-label="Home">
-      <img src="assets/logo.svg" alt="" class="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110">
-      <span class="sr-only">Joe Dev</span>
+      <img src="assets/logo.svg" alt="Jdigitalarchitecture logo" class="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110">
+      <span class="sr-only">Jdigitalarchitecture</span>
     </a>
     <nav class="hidden md:flex space-x-6 font-medium text-sm">
-      <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+      <a href="index.html" class="text-white">Home</a>
       <a href="about.html" class="hover:text-blue-400 transition">About</a>
       <a href="services.html" class="hover:text-blue-400 transition">Services</a>
       <a href="blog.html" class="hover:text-blue-400 transition">Blog</a>
       <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
     </nav>
-    <div class="flex items-center gap-3">
-      <button id="themeToggle" class="p-2 rounded-xl hover:bg-white/10 transition aria-pressed:bg-white/10" aria-label="Toggle theme">
-        <svg id="themeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="themeIconPath" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-      </button>
-      <a href="contact.html" class="btn btn-primary text-xs md:text-sm px-4 py-2">Hire Me</a>
-    </div>
+    <a href="contact.html" class="btn btn-primary text-xs md:text-sm px-4 py-2">Hire Me</a>
   </div>
 </header>
-<main class="hero">
-  <h1>Digital Architecture for Growth</h1>
-  <p>Custom web experiences that combine thoughtful design, performant code, and AI-assisted workflows to accelerate your product.</p>
-  <a href="services.html" class="btn btn-primary">Explore Services</a>
+
+<main>
+  <section class="hero section-wrap">
+    <span class="section-label">Web design + development</span>
+    <h1>Premium websites that turn visitors into booked projects.</h1>
+    <p>I help architects, designers, and growing businesses launch fast, elegant websites that build trust, generate leads, and support long-term growth.</p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn btn-primary">Hire Me</a>
+      <a href="services.html" class="btn btn-secondary">View Services</a>
+    </div>
+
+    <div class="kpi-grid max-w-3xl mx-auto">
+      <div class="kpi"><strong>48h</strong><span>Average first draft timeline</span></div>
+      <div class="kpi"><strong>90+</strong><span>Mobile/PageSpeed benchmark target</span></div>
+      <div class="kpi"><strong>1:1</strong><span>Direct communication with your developer</span></div>
+    </div>
+  </section>
+
+  <section class="features" id="work">
+    <article class="card">
+      <strong>Strategy-first build</strong>
+      <p>Clear messaging, positioning, and layout before development starts so your site converts, not just looks good.</p>
+    </article>
+    <article class="card">
+      <strong>Performance by default</strong>
+      <p>Clean, lightweight code with responsive layouts and smart media optimization for a premium user experience.</p>
+    </article>
+    <article class="card">
+      <strong>Lead-ready automation</strong>
+      <p>Netlify Forms, Calendly booking, and simple CRM-style tracking so opportunities never fall through.</p>
+    </article>
+  </section>
+
+  <section class="section-wrap my-16">
+    <div class="glass rounded-3xl p-8 md:p-10">
+      <h2 class="text-2xl md:text-3xl mb-3">How working together feels</h2>
+      <div class="grid md:grid-cols-3 gap-4 mt-6">
+        <div class="card">
+          <h3>01. Discovery</h3>
+          <p>We define goals, pages, offer positioning, and conversion flow in one focused kickoff.</p>
+        </div>
+        <div class="card">
+          <h3>02. Build</h3>
+          <p>You get a polished, responsive build with clear updates and quick review cycles.</p>
+        </div>
+        <div class="card">
+          <h3>03. Launch + optimize</h3>
+          <p>Launch support, SEO basics, and lead tracking setup so your site starts working immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap my-16" id="newsletter">
+    <div class="glass rounded-2xl p-8 max-w-3xl mx-auto">
+      <h3 class="text-xl font-bold mb-2">Get practical website growth tips</h3>
+      <p class="text-sm text-slate-500 mb-4">Occasional insights for architects and design-led businesses. No spam.</p>
+      <form class="newsletter-form" action="/" method="POST" data-netlify="true" name="newsletter" netlify>
+        <input type="hidden" name="form-name" value="newsletter">
+        <input type="hidden" name="bot-field">
+        <input name="email" type="email" placeholder="you@example.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="section-wrap my-16" id="contact">
+    <div class="glass rounded-2xl p-8 text-center max-w-3xl mx-auto">
+      <h3 class="text-2xl font-bold mb-2">Ready to upgrade your website?</h3>
+      <p class="text-sm text-slate-500 mb-4">Email: joe.digitalarchitect@gmail.com</p>
+      <div class="hero-cta">
+        <a href="contact.html" class="btn btn-primary">Start My Project</a>
+        <a href="https://calendly.com/jdigitalarchitecture/15min" class="btn btn-secondary">Book a Call</a>
+      </div>
+    </div>
+  </section>
 </main>
-<section class="features" id="work">
-  <div class="card"><strong>Clean Development</strong><p>Scalable frontends and backends with modern best practices.</p></div>
-  <div class="card"><strong>High Performance</strong><p>Optimized assets and caching for fast, reliable experiences.</p></div>
-  <div class="card"><strong>AI Integration</strong><p>Smart features and agentic workflows to boost productivity.</p></div>
-</section>
-<main class="glass rounded-2xl p-8 my-16 max-w-3xl mx-auto" id="newsletter">
-  <h3 class="text-xl font-bold mb-2">Stay in the loop</h3>
-  <p class="text-sm text-slate-500 mb-4">Subscribe for updates, free resources, and occasional offers.</p>
-  <form class="newsletter-form" action="#" data-netlify="true" name="newsletter" onsubmit="e=>{e.preventDefault();alert('Placeholder — connect Mailchimp or form handler.');this.reset();}">
-    <input name="email" type="email" placeholder="you@example.com" required>
-    <button type="submit">Subscribe</button>
-    <input type="hidden" name="form-name" value="newsletter">
-  </form>
-</main>
-<main class="glass rounded-2xl p-8 my-16 max-w-3xl mx-auto" id="contact">
-  <h3 class="text-xl font-bold mb-2">Ready to build something great?</h3>
-  <p class="text-sm text-slate-500 mb-4">joe.digitalarchitect@gmail.com</p>
-  <a href="contact.html" class="btn btn-primary">Get in Touch</a>
-</main>
+
 <footer class="bg-slate-900 text-white py-12 mt-20 relative z-10">
   <div class="max-w-6xl mx-auto text-center px-4">
     <p class="text-slate-500 text-sm">© 2026 jdigitalarchitecture</p>
   </div>
 </footer>
-<!-- Lead Magnet Popup -->
+
 <div class="popup-overlay" id="leadPopup">
   <div class="popup-box">
     <button class="popup-close" id="popupCloseBtn" aria-label="Close">&times;</button>
     <span class="popup-badge">Free Guide</span>
-    <h2 class="text-xl font-bold mb-2">The Architect's Guide to Website Costs</h2>
-    <p class="text-sm text-slate-500 mb-4">Get the exact budget breakdown most designers never see. Used by 200+ architects to plan their sites.</p>
-    <form id="popupForm">
-      <input type="email" name="email" placeholder="your@email.com" required class="w-full px-4 py-3 rounded-xl border border-slate-200 mb-3 text-sm focus:outline-none focus:border-blue-500">
-      <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-xl transition text-sm">Send Me the Guide</button>
+    <h2 class="text-xl font-bold mt-3 mb-2">Website Cost Guide for Architects</h2>
+    <p class="text-sm text-slate-500 mb-4">Get a practical budget breakdown you can use before hiring.</p>
+    <form id="popupForm" action="/" method="POST" data-netlify="true" name="lead-magnet" netlify>
       <input type="hidden" name="form-name" value="lead-magnet">
+      <input type="hidden" name="bot-field">
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <button type="submit" class="btn btn-primary w-full mt-3">Send Me the Guide</button>
     </form>
-    <p class="text-xs text-slate-400 mt-3 text-center">Join 200+ architects. No spam, ever.</p>
+    <p class="text-xs text-slate-400 mt-3 text-center">Used by 200+ business owners planning better sites.</p>
   </div>
 </div>
+
 <script src="js/app.js"></script>
 <script>
-// Lead magnet popup logic
-(function(){
+(function() {
   const popup = document.getElementById('leadPopup');
-  const form = document.getElementById('popupForm');
+  const closeBtn = document.getElementById('popupCloseBtn');
   const LS_KEY = 'jdpopup_seen';
-  
-  function showPopup() {
-    popup.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
-  
-  function closePopup() {
+
+  if (!popup || localStorage.getItem(LS_KEY)) return;
+
+  const showPopup = () => popup.classList.add('show');
+  const closePopup = () => {
     popup.classList.remove('show');
-    document.body.style.overflow = '';
     localStorage.setItem(LS_KEY, 'true');
-  }
-  
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = form.querySelector('button');
-    const email = form.email.value;
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    const fd = new FormData(form);
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(fd) })
-      .then(() => {
-        localStorage.setItem(LS_KEY, 'true');
-        popup.querySelector('.popup-box').innerHTML = '<div class="text-center py-4"><div class="text-4xl mb-3">📬</div><h3 class="font-bold text-lg">Check your inbox!</h3><p class="text-slate-500 text-sm mt-1">Your guide is on its way.</p></div>';
-        setTimeout(closePopup, 2000);
-      })
-      .catch(() => { btn.textContent = 'Try again'; btn.disabled = false; });
-  }
-  
-  form.addEventListener('submit', handleSubmit);
-  document.getElementById('popupCloseBtn').addEventListener('click', closePopup);
-  popup.addEventListener('click', e => { if (e.target === popup) closePopup(); });
-  
-  // Show after 4 seconds OR 40% scroll
-  if (!localStorage.getItem(LS_KEY)) {
-    let shown = false;
-    const showOnce = () => { if (!shown) { shown = true; showPopup(); } };
-    setTimeout(showOnce, 4000);
-    window.addEventListener('scroll', () => { if (document.documentElement.scrollTop / document.documentElement.scrollHeight > 0.4) showOnce(); }, { passive: true });
-  }
+  };
+
+  setTimeout(showPopup, 4500);
+  closeBtn?.addEventListener('click', closePopup);
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) closePopup();
+  });
 })();
-</script></body>
+</script>
+</body>
 </html>

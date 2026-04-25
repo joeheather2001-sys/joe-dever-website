@@ -1,39 +1,45 @@
-// Simple client-side router and form handling
 document.addEventListener('DOMContentLoaded', () => {
-  // Smooth nav for internal links
-  document.querySelectorAll('a[href^="index.html"],a[href^="services.html"],a[href^="contact.html"],a[href^="about.html"]').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      const url = a.href;
-      fetch(url).then(r => r.text()).then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        document.querySelector('main').outerHTML = doc.querySelector('main').outerHTML;
-        history.pushState(null, '', url);
-      }).catch(() => (document.location = url));
-    });
-  });
-  window.addEventListener('popstate', () => location.reload());
+  const progressBar = document.getElementById('progressBar');
 
-  // Form enhanced submit
+  function updateProgress() {
+    if (!progressBar) return;
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - doc.clientHeight;
+    const progress = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+    progressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
   const form = document.querySelector('form[data-netlify]');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const defaultLabel = submitBtn?.dataset.defaultLabel || submitBtn?.textContent || 'Submit';
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
       try {
-        const formData = new FormData(form);
-        const params = new URLSearchParams(formData);
-        await fetch(form.action || '/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: params });
-        alert('Thanks — we’ll be in touch shortly!');
+        const body = new URLSearchParams(new FormData(form)).toString();
+        await fetch(form.action || '/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body
+        });
+        alert('Thanks — your message was sent. I will reply within 1 business day.');
         form.reset();
       } catch (err) {
-        alert('Something went wrong — please try again.');
+        alert('Submission failed. Please try again, or email joe.digitalarchitect@gmail.com directly.');
       } finally {
-        btn.disabled = false;
-        btn.textContent = 'Send Message';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = defaultLabel;
+        }
       }
     });
   }

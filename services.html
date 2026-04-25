@@ -1,57 +1,111 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>jdigitalarchitecture — Services</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Jdigitalarchitecture</title>
+<meta name="description" content="Website design, development, and lead automation services for architects, studios, and small businesses.">
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#111111">
-<style>
-  body{font-family:Inter,sans-serif;background:#f5f5f7;color:#1d1d1f}
-  .card{background:#fff;border-radius:20px;padding:2rem;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.03)}
-  .btn{display:inline-block;padding:12px 28px;border-radius:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:transform .08s}
-  .btn-primary{background:#1d1d1f;color:#fff;box-shadow:0 6px 18px rgba(29,29,31,.12)}
-  .btn-primary:hover{transform:translateY(-2px)}
-</style>
+<meta name="theme-color" content="#09090b">
 </head>
 <body class="min-h-screen flex flex-col">
+<div class="bg-blobs">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+<div class="progress-wrap"><div id="progressBar" style="width:0"></div></div>
+
 <header class="fixed w-full z-50 px-4 py-3">
   <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-2xl px-5 py-2.5 shadow-sm">
     <a href="index.html" class="flex items-center gap-2 group" aria-label="Home">
-      <img src="assets/logo.svg" alt="" class="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110"/>
-      <span class="sr-only">Joe Dev</span>
+      <img src="assets/logo.svg" alt="Jdigitalarchitecture logo" class="w-8 h-8 md:w-10 md:h-10 transition-transform group-hover:scale-110"/>
+      <span class="sr-only">Jdigitalarchitecture</span>
     </a>
     <nav class="hidden md:flex space-x-6 font-medium text-sm">
       <a href="index.html" class="hover:text-blue-400 transition">Home</a>
       <a href="about.html" class="hover:text-blue-400 transition">About</a>
-      <a href="services.html" class="hover:text-blue-400 transition">Services</a>
+      <a href="services.html" class="text-white">Services</a>
       <a href="blog.html" class="hover:text-blue-400 transition">Blog</a>
       <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
     </nav>
-    <div class="flex items-center gap-3">
-      <button id="themeToggle" class="p-2 rounded-xl hover:bg-white/10 transition aria-pressed:bg-white/10" aria-label="Toggle theme">
-        <svg id="themeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="themeIconPath" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-      </button>
-      <a href="contact.html" class="btn btn-primary text-xs md:text-sm px-4 py-2">Hire Me</a>
-    </div>
+    <a href="contact.html" class="btn btn-primary text-xs md:text-sm px-4 py-2">Hire Me</a>
   </div>
 </header>
-<main class="flex-1 py-12 px-6 max-w-4xl mx-auto">
-  <h1 class="text-3xl font-bold text-center mb-2">Services</h1>
-  <p class="text-slate-500 text-center mb-10 max-w-xl mx-auto">Modern, accessible, and AI-integrated web experiences.</p>
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="card"><div class="text-3xl mb-2">⚙️</div><h3 class="font-bold mb-2">Custom Development</h3><p class="text-sm text-slate-500">Clean, scalable frontends and backends with React, Next.js, and Tailwind.</p></div>
-    <div class="card"><div class="text-3xl mb-2">📱</div><h3 class="font-bold mb-2">Responsive UX/UI</h3><p class="text-sm text-slate-500">Interfaces that shine on every device with a focus on accessibility.</p></div>
-    <div class="card"><div class="text-3xl mb-2">🤖</div><h3 class="font-bold mb-2">AI Integration</h3><p class="text-sm text-slate-500">Smart features and agentic workflows to accelerate time-to-market.</p></div>
-  </div>
-  <div class="text-center mt-16">
-    <a href="contact.html" class="btn btn-primary">Let’s start a project</a>
-  </div>
-  <!-- Calendly scheduling widget -->
-  <div class="mt-12 flex justify-center">
-    <div class="calendly-inline-widget" data-url="https://calendly.com/jdigitalarchitecture/15min" style="min-width:320px;height:630px;"></div>
-  </div>
+
+<main class="flex-1 pt-32 pb-16 px-4">
+  <section class="section-wrap text-center">
+    <span class="section-label">Services</span>
+    <h1 class="text-4xl md:text-5xl mt-4 mb-3">Websites built to win better clients</h1>
+    <p class="text-slate-500 max-w-3xl mx-auto">Simple offers, clear deliverables, and premium execution. Every package is responsive, SEO-conscious, and conversion-focused.</p>
+  </section>
+
+  <section class="section-wrap mt-12 grid md:grid-cols-3 gap-5">
+    <article class="card text-left">
+      <h3>Launch Site</h3>
+      <p class="mb-3">For businesses that need a polished online presence fast.</p>
+      <ul class="text-sm text-slate-500 space-y-2">
+        <li>• Up to 4 pages</li>
+        <li>• Mobile-first build</li>
+        <li>• Contact + lead capture</li>
+        <li>• Basic on-page SEO</li>
+      </ul>
+      <p class="mt-4 font-semibold text-white">Starting at £1,200</p>
+    </article>
+
+    <article class="card text-left border border-blue-400/40">
+      <h3>Growth Site</h3>
+      <p class="mb-3">For teams that want stronger positioning and better lead flow.</p>
+      <ul class="text-sm text-slate-500 space-y-2">
+        <li>• Up to 8 pages + blog setup</li>
+        <li>• Conversion copy structure</li>
+        <li>• Calendly + forms automation</li>
+        <li>• Speed/performance tuning</li>
+      </ul>
+      <p class="mt-4 font-semibold text-white">Starting at £2,400</p>
+    </article>
+
+    <article class="card text-left">
+      <h3>Authority Platform</h3>
+      <p class="mb-3">For established businesses that need a premium, scalable system.</p>
+      <ul class="text-sm text-slate-500 space-y-2">
+        <li>• Multi-page architecture</li>
+        <li>• Advanced UX + content structure</li>
+        <li>• CRM-ready lead pipeline</li>
+        <li>• Ongoing optimization support</li>
+      </ul>
+      <p class="mt-4 font-semibold text-white">Starting at £4,000</p>
+    </article>
+  </section>
+
+  <section class="section-wrap mt-14">
+    <div class="glass rounded-3xl p-8 md:p-10">
+      <h2 class="text-2xl md:text-3xl mb-4">What you get in every build</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="card text-left"><h3>Conversion-first structure</h3><p>Strategic CTA placement, clear service hierarchy, and frictionless inquiry paths.</p></div>
+        <div class="card text-left"><h3>Performance & accessibility</h3><p>Fast loading, responsive layouts, semantic HTML, and usability best practices.</p></div>
+        <div class="card text-left"><h3>Modern technical stack</h3><p>Clean maintainable code, reusable styling patterns, and Netlify-ready deployment.</p></div>
+        <div class="card text-left"><h3>Lead automation baseline</h3><p>Netlify forms + scheduling flow so every lead is captured and actionable.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap mt-14">
+    <div class="glass rounded-3xl p-8 md:p-10">
+      <h2 class="text-2xl md:text-3xl mb-2 text-center">Book a strategy call</h2>
+      <p class="text-slate-500 text-center mb-8">15 minutes to map your goals, budget range, and the best package.</p>
+      <div class="mt-2 flex justify-center">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/jdigitalarchitecture/15min" style="min-width:320px;height:640px;"></div>
+      </div>
+      <div class="text-center mt-6">
+        <a href="contact.html" class="btn btn-primary">Or Send a Project Brief</a>
+      </div>
+    </div>
+  </section>
 </main>
+
 <footer class="bg-slate-900 text-white py-12 mt-20 relative z-10">
   <div class="max-w-6xl mx-auto text-center px-4">
     <p class="text-slate-500 text-sm">© 2026 jdigitalarchitecture</p>
@@ -59,4 +113,5 @@
 </footer>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script src="js/app.js"></script>
-</body></html>
+</body>
+</html>
